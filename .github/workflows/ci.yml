@@ -40,6 +40,18 @@ jobs:
             -Dsonar.sources=.
 
 
+      - name: 📤 Upload Sonar report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonar-report
+          path: .scannerwork
+          if-no-files-found: warn
+
+      - name: 🐞 Debug scannerwork
+        run: |
+          ls -la
+          ls -la .scannerwork || echo "scannerwork no existe"
 
       - name: 🐳 Build Docker image
         run: |
