@@ -22,6 +22,7 @@ def hardcoded_secret():
     return api_key
 
 if __name__ == "__main__":
+    print("Proyecto inseguro")
     if len(sys.argv) < 3:
         print("Uso: python main.py <url> <command>")
         sys.exit(1)
