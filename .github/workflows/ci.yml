@@ -47,6 +47,7 @@ jobs:
           name: sonar-report
           path: .scannerwork
           if-no-files-found: warn
+          include-hidden-files: true
 
       - name: 🐞 Debug scannerwork
         run: |
