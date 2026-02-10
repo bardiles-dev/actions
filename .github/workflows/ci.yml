@@ -28,6 +28,19 @@ jobs:
         run: |
           python main.py https://example.com "ls"
 
+      
+      - name: 🔍 SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=bardiles-dev_actions
+            -Dsonar.organization=bardiles-dev
+            -Dsonar.sources=.
+
+
+
       - name: 🐳 Build Docker image
         run: |
           docker build -t insecure-python:latest .
